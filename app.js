@@ -55,7 +55,7 @@ function main() {
                         costoMaterial: material.tipoMaterial,
                         color: color.tipoColorItem,
                         costoColor: color.tipoColor,
-                        tamanio: tamanio.tipoTamanio,
+                        tamanio: tamanio.tipoTamanioItem,
                         costoTamanio: tamanio.tipoTamanio,
                         precio: total
                     }

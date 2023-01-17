@@ -200,3 +200,5 @@ console.log(compra);
 ///incluir reduce en una function//////////////////////////////////////////
 const totalCarrito = compra.reduce((acumulador, producto) => acumulador + producto.precio, 0);
 console.log("El costo total por los productos seleccionados es de $" + totalCarrito + " impuestos incluídos.");
+
+///plantilla para objeto en nuevo archivo .js///////////

@@ -50,7 +50,7 @@ function main() {
                     alert("Calculando costo...\nEl total de su artículo es: $" + total + ", impuestos incluídos.\nPuedes continuar agregando piezas al carrito o selecciona 5 en el menu principal para salir.");
 
                     ///Objeto///
-                    const impresion1 = new Impresion(material.tipoMaterialItem, material.tipoMaterial, color.tipoColorItem, color.tipoColor, tamanio.tipoTamanioItem, tamanio.tipoTamanio, subTotal);
+                    const impresion1 = new Impresion(material.tipoMaterialItem, material.tipoMaterial, color.tipoColorItem, color.tipoColor, tamanio.tipoTamanioItem, tamanio.tipoTamanio, total);
                     
                     ///Método de array///
                     compra.push(impresion1);
@@ -63,7 +63,7 @@ function main() {
                     alert("Debes seleccionar un material, color y tamaño");
                 }
                 break
-            case 5: costototalCarrito();
+            case 5: costoTotalCarrito();
                     alert("Estas saliendo del simulador...\n Te esperamos pronto!");
                 break
             default: alert("Opción inválida, por favor intente de nuevo");
@@ -191,6 +191,7 @@ main();
 
 console.log(compra);
 
-function costototalCarrito() { const totalCarrito = compra.reduce((acumulador, producto) => acumulador + producto.precio, 0);
+///Funcion suma total del carro///
+function costoTotalCarrito() { const totalCarrito = compra.reduce((acumulador, producto) => acumulador + producto.precio, 0);
 alert("El costo total por los productos seleccionados es de $" + totalCarrito + " impuestos incluídos.")};
 

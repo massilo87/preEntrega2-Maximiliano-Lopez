@@ -1,12 +1,12 @@
 class Impresion {
-    constructor(material, costoMaterial, color, costoColor, tamanio, costoTamanio, precio) {
+    constructor(material, precioMaterial, color, precioColor, tamanio, precioTamanio, precioFinal) {
         this.material = material;
-        this.costoMaterial = costoMaterial;
+        this.precioMaterial = precioMaterial;
         this.color = color;
-        this.costoColor = costoColor;
+        this.precioColor = precioColor;
         this.tamanio = tamanio;
-        this.costoTamanio = costoTamanio;
-        this.precio = precio;
+        this.precioTamanio = precioTamanio;
+        this.precioFinal = precioFinal;
     }
 
 }

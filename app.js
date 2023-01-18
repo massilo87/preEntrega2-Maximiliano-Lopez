@@ -17,16 +17,16 @@ function main() {
         menu = parseInt(menu);
         switch (menu) {
             case 1: if (subTotal == 0) {
-                material = Material();
-                subTotal += material.tipoMaterial;
+                material = materiales();
+                subTotal += material.costoMaterial;
                 alert("El sub total de tu impresión es de: " + subTotal);
             } else {
                 alert("Ya seleccionaste material");
             }
                 break
             case 2: if (mat && !col) {
-                color = Color();
-                subTotal += color.tipoColor;
+                color = colores();
+                subTotal += color.costoColor;
                 alert("El sub total de tu impresión es de: " + subTotal);
             } else if (!mat) {
                 alert("Debes seleccionar primero el material");
@@ -35,8 +35,8 @@ function main() {
             }
                 break
             case 3: if (mat && col && !tam) {
-                tamanio = Tamanio();
-                subTotal += tamanio.tipoTamanio;
+                tamanio = tamanios();
+                subTotal += tamanio.costoTamanio;
                 alert("El sub total de tu impresión es de: " + subTotal);
             } else if (tam) {
                 alert("Ya seleccionaste un tamaño");
@@ -50,7 +50,7 @@ function main() {
                     alert("Calculando costo...\nEl total de su artículo es: $" + total + ", impuestos incluídos.\nPuedes continuar agregando piezas al carrito o selecciona 5 en el menu principal para salir.");
 
                     ///Objeto///
-                    const impresion1 = new Impresion(material.tipoMaterialItem, material.tipoMaterial, color.tipoColorItem, color.tipoColor, tamanio.tipoTamanioItem, tamanio.tipoTamanio, total);
+                    const impresion1 = new Impresion(material.tipoMaterialItem, material.costoMaterial, color.tipoColorItem, color.costoColor, tamanio.tipoTamanioItem, tamanio.costoTamanio, total);
                     
                     ///Método de array///
                     compra.push(impresion1);
@@ -74,19 +74,19 @@ function main() {
 
 ///Funcion material///
 
-function Material() {
-    let tipoMaterial = 0;
+function materiales() {
+    let costoMaterial = 0;
     let tipoMaterialItem = "";
     let materialIngresado = prompt("-MATERIALES-\n Selecciona el material con el que deseas imprimir:\n1-PLA (precio base $100)\n2-RESINA (precio base $200)\n3-Menú principal");
     materialIngresado = parseInt(materialIngresado);
     do {
 
         switch (materialIngresado) {
-            case 1: tipoMaterial = 100;
+            case 1: costoMaterial = 100;
                 tipoMaterialItem = "pla";
                 alert("Tu pieza se imprimirá con pla.");
                 break
-            case 2: tipoMaterial = 200;
+            case 2: costoMaterial = 200;
                 tipoMaterialItem = "resina";
                 alert("Tu pieza se imprimirá con resina.");
                 break
@@ -96,11 +96,11 @@ function Material() {
             default:
                 alert("Opcion invalida!");
         }
-        if (tipoMaterial > 0) {
+        if (costoMaterial > 0) {
             mat = true;
         }
         return {
-            tipoMaterial: tipoMaterial,
+            costoMaterial: costoMaterial,
             tipoMaterialItem: tipoMaterialItem
         };
 
@@ -109,23 +109,23 @@ function Material() {
 
 ///Funcion color///
 
-function Color() {
-    let tipoColor = 0;
+function colores() {
+    let costoColor = 0;
     let tipoColorItem = "";
     let colorIngresado = prompt("-COLORES-\n Selecciona el color de tu impresión:\n1-BLANCO (tiene un costo adicional de $50)\n2-NEGRO (tiene un costo adicional de $100)\n3-COLORES (tiene un costo adicional de $200)\n4-SALIR");
     colorIngresado = parseInt(colorIngresado);
     do {
 
         switch (colorIngresado) {
-            case 1: tipoColor = 50;
+            case 1: costoColor = 50;
                 tipoColorItem = "blanco";
                 alert("Seleccionaste una pieza en color blanco.");
                 break
-            case 2: tipoColor = 100;
+            case 2: costoColor = 100;
                 tipoColorItem = "negro";
                 alert("Seleccionaste una pieza en color negro.");
                 break
-            case 3: tipoColor = 200;
+            case 3: costoColor = 200;
                 tipoColorItem = "varios colores";
                 alert("Seleccionaste una pieza en colores.");
                 break
@@ -135,11 +135,11 @@ function Color() {
             default:
                 alert("Opcion invalida!");
         }
-        if (tipoColor > 0) {
+        if (costoColor > 0) {
             col = true;
         }
         return {
-            tipoColor: tipoColor,
+            costoColor: costoColor,
             tipoColorItem: tipoColorItem
         };
 
@@ -149,23 +149,23 @@ function Color() {
 
 ///Funcion Tamaño///
 
-function Tamanio() {
-    let tipoTamanio = 0;
+function tamanios() {
+    let costoTamanio = 0;
     let tipoTamanioItem = "";
     let tamanioIngresado = prompt("-TAMAÑO-\n Selecciona el tamaño de la pieza:\n1-CHICO ($100)\n2-MEDIANO ($200)\n3-GRANDE ($400)\n4-SALIR");
     tamanioIngresado = parseInt(tamanioIngresado);
     do {
 
         switch (tamanioIngresado) {
-            case 1: tipoTamanio = 100;
+            case 1: costoTamanio = 100;
                 tipoTamanioItem = "chico";
                 alert("Se imprimirá una pieza de tamaño chico.");
                 break
-            case 2: tipoTamanio = 200;
+            case 2: costoTamanio = 200;
                 tipoTamanioItem = "mediano";
                 alert("Se imprimirá una pieza de tamaño medio.")
                 break
-            case 3: tipoTamanio = 400;
+            case 3: costoTamanio = 400;
                 tipoTamanioItem = "grande";
                 alert("Se imprimirá una pieza de tamaño grande.");
                 break
@@ -175,11 +175,11 @@ function Tamanio() {
             default:
                 alert("Opcion invalida!");
         }
-        if (tipoTamanio > 0) {
+        if (costoTamanio > 0) {
             tam = true;
         };
         return {
-            tipoTamanio: tipoTamanio,
+            costoTamanio: costoTamanio,
             tipoTamanioItem: tipoTamanioItem
         };
 
@@ -192,6 +192,6 @@ main();
 console.log(compra);
 
 ///Funcion suma total del carro///
-function costoTotalCarrito() { const totalCarrito = compra.reduce((acumulador, producto) => acumulador + producto.precio, 0);
+function costoTotalCarrito() { const totalCarrito = compra.reduce((acumulador, producto) => acumulador + producto.precioFinal, 0);
 alert("El costo total por los productos seleccionados es de $" + totalCarrito + " impuestos incluídos.")};
 
